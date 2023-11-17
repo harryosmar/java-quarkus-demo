@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: postgres
+    environment:
+      POSTGRES_DB: blog
+      POSTGRES_USER: graalvm
+      POSTGRES_PASSWORD: hotspot
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./data/init.sql:/docker-entrypoint-initdb.d/init.sql
